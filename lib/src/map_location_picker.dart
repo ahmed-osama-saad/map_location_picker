@@ -159,6 +159,9 @@ class MapLocationPicker extends StatefulWidget {
   /// Add your own custom markers
   final Map<String, LatLng>? additionalMarkers;
 
+  /// Extra Form
+  final Widget? extraForm;
+
   const MapLocationPicker({
     Key? key,
     this.desiredAccuracy = LocationAccuracy.high,
@@ -212,6 +215,7 @@ class MapLocationPicker extends StatefulWidget {
     this.mapType = MapType.normal,
     this.searchController,
     this.additionalMarkers,
+    this.extraForm,
   }) : super(key: key);
 
   @override
@@ -501,6 +505,7 @@ class _MapLocationPickerState extends State<MapLocationPicker> {
                         },
                       ),
                     ),
+                    if (widget.extraForm != null) widget.extraForm!,
                     if (widget.showMoreOptions &&
                         _geocodingResultList.isNotEmpty)
                       GestureDetector(
